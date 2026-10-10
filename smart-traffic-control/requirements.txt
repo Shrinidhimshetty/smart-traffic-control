@@ -1,0 +1,24 @@
+# ---------------------------------------------------------------------------
+# Phase 1-2 (working simulation + statistics). Install these now.
+# ---------------------------------------------------------------------------
+eclipse-sumo>=1.20.0     # SUMO binaries via pip (skip if you used the installer)
+traci>=1.20.0            # Python <-> SUMO control interface
+sumolib>=1.20.0          # network/route file parsing
+numpy>=1.24
+pandas>=2.0
+matplotlib>=3.7
+
+# ---------------------------------------------------------------------------
+# Phase 3 (MAPPO). Install when you reach the RL milestone, NOT before.
+# Pinning torch early wastes several GB and slows your environment down.
+# ---------------------------------------------------------------------------
+# torch>=2.1
+# gymnasium>=0.29
+# pettingzoo>=1.24
+# supersuit>=3.9
+# tensorboard>=2.14
+
+# ---------------------------------------------------------------------------
+# Phase 5 (dashboard)
+# ---------------------------------------------------------------------------
+# streamlit>=1.30

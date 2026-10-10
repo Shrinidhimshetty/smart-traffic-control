@@ -1,0 +1,27 @@
+# generated networks and demand - rebuild with the scripts, never commit
+net/*.net.xml
+demand/*.rou.xml
+demand/*.rou.alt.xml
+demand/*.trips.xml
+demand/_part_*
+config/detectors.add.xml
+
+# simulation outputs
+results/*.xml
+results/*.csv
+results/plots/*.png
+results/screenshots/**/*.png
+data/*.db
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# editors / os
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

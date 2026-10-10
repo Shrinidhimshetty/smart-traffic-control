@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  GUI appearance for the demo.
+
+  NOTE: SUMO only partially honours hand-written colour schemes. This project
+  therefore colours vehicles BY SPEED from Python instead
+  (see src/run_simulation.py, --colorize), which always works:
+      RED = stopped   ORANGE = crawling   YELLOW = slow   GREEN = free flow
+
+  This file just sets sensible defaults: white background, visible lane
+  borders, and traffic-light link rules drawn at junctions.
+-->
+<viewsettings>
+    <delay value="30"/>
+    <viewport zoom="700" x="400" y="400"/>
+
+    <scheme name="real world"/>
+
+    <background backgroundColor="255,255,255"
+                showGrid="0"
+                gridXSize="100.00" gridYSize="100.00"/>
+
+    <edges laneEdgeMode="0"
+           laneShowBorders="1"
+           showLinkDecals="1"
+           showLinkRules="1"
+           showDirection="1"
+           spreadSuperposed="1"
+           widthExaggeration="1.00"
+           minSize="0.00"/>
+
+    <vehicles vehicleMode="0"
+              vehicleQuality="2"
+              vehicleSize.minSize="0.00"
+              vehicleSize.exaggeration="1.50"
+              showBlinker="1"/>
+
+    <junctions junctionMode="0"
+               drawShape="1"
+               drawCrossingsAndWalkingareas="1"
+               junctionSize.minSize="1.00"
+               junctionSize.exaggeration="1.00"/>
+
+    <additionals addMode="0"
+                 addSize.minSize="1.00"
+                 addSize.exaggeration="1.00"/>
+
+    <legend showSizeLegend="1"/>
+</viewsettings>

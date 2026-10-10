@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  SUMO configuration - Max-Pressure control.
+
+  NOTE: this deliberately loads ../net/grid_static.net.xml. Max-Pressure has
+  no network of its own. It needs a program with fixed phase DEFINITIONS
+  (which movements may run together) but ignores the fixed phase DURATIONS,
+  choosing the phase itself every few seconds from Python.
+
+  tls_programs.add.xml is NOT loaded here. The phase timings in it are
+  irrelevant because MaxPressureController overrides every duration.
+
+  Run with:  python src/run_simulation.py (controller flag) max_pressure
+-->
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="../net/grid_static.net.xml"/>
+        <route-files value="../demand/grid.rou.xml"/>
+        <additional-files value="detectors.add.xml"/>
+    </input>
+
+    <time>
+        <begin value="0"/>
+        <end value="1800"/>
+        <step-length value="1.0"/>
+    </time>
+
+    <processing>
+        <time-to-teleport value="300"/>
+        <max-depart-delay value="600"/>
+        <collision.action value="warn"/>
+        <collision.mingap-factor value="0"/>
+        <ignore-junction-blocker value="20"/>
+    </processing>
+
+    <report>
+        <no-step-log value="true"/>
+        <duration-log.statistics value="true"/>
+        <no-warnings value="true"/>
+        <tripinfo-output value="../results/tripinfo_max_pressure.xml"/>
+        <summary-output value="../results/summary_max_pressure.xml"/>
+        <statistic-output value="../results/statistics_max_pressure.xml"/>
+    </report>
+
+    <gui_only>
+        <gui-settings-file value="gui-settings.xml"/>
+        <start value="true"/>
+        <quit-on-end value="true"/>
+    </gui_only>
+
+</configuration>

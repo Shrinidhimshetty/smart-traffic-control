@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<routes>
+  <!-- Emergency vehicle demand. Corridor 'west_east': -5002 -5001 5020 -5015 -5018 5003 5013 5014 5015 -5020 5001 5002 -->
+  <vType id="ambulance" vClass="emergency" guiShape="emergency" color="0,0.45,1" length="6.5" width="2.2" accel="3.2" decel="6.0" emergencyDecel="9.0" sigma="0.1" speedFactor="1.3" minGap="1.0" tau="0.6" jmDriveAfterRedTime="-1" jmIgnoreFoeProb="0.0"/>
+  <route id="ambulance_route_osm" edges="-5002 -5001 5020 -5015 -5018 5003 5013 5014 5015 -5020 5001 5002"/>
+  <vehicle id="ambulance_0" type="ambulance" route="ambulance_route_osm" depart="900.0" departLane="best" departSpeed="max" departPos="0"/>
+  <vehicle id="ambulance_1" type="ambulance" route="ambulance_route_osm" depart="1500.0" departLane="best" departSpeed="max" departPos="0"/>
+</routes>

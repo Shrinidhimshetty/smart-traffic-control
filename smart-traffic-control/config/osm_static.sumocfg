@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  SUMO configuration for the REAL OpenStreetMap network.
+  Paths are relative to this file (the config/ folder).
+
+  Build the inputs first:
+      python src/osm_import.py (place flag) mangaluru
+      python src/osm_routes.py
+      python src/generate_tls.py (map flag) osm
+      python src/generate_detectors.py (map flag) osm
+
+  Run with:  python src/run_simulation.py (map flag) osm (controller flag) static
+-->
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="../osm/networks/osm_static.net.xml"/>
+        <route-files value="../osm/routes/osm.rou.xml"/>
+        <additional-files value="osm_detectors.add.xml,osm_tls_programs.add.xml"/>
+    </input>
+
+    <time>
+        <begin value="0"/>
+        <end value="1800"/>
+        <step-length value="1.0"/>
+    </time>
+
+    <processing>
+        <time-to-teleport value="300"/>
+        <max-depart-delay value="600"/>
+        <collision.action value="warn"/>
+        <collision.mingap-factor value="0"/>
+        <ignore-junction-blocker value="20"/>
+    </processing>
+
+    <report>
+        <no-step-log value="true"/>
+        <duration-log.statistics value="true"/>
+        <no-warnings value="true"/>
+        <tripinfo-output value="../results/osm_tripinfo_static.xml"/>
+        <summary-output value="../results/osm_summary_static.xml"/>
+        <statistic-output value="../results/osm_statistics_static.xml"/>
+    </report>
+
+    <gui_only>
+        <gui-settings-file value="gui-settings.xml"/>
+        <start value="true"/>
+        <quit-on-end value="true"/>
+    </gui_only>
+
+</configuration>

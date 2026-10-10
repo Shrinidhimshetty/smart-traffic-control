@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  SUMO configuration - actuated traffic signal control.
+  Paths are relative to THIS file (the config/ folder).
+  Run with:  sumo-gui -c config/grid_actuated.sumocfg
+-->
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="../net/grid_actuated.net.xml"/>
+        <route-files value="../demand/grid.rou.xml"/>
+        <additional-files value="detectors.add.xml"/>
+    </input>
+
+    <time>
+        <begin value="0"/>
+        <end value="1800"/>
+        <step-length value="1.0"/>
+    </time>
+
+    <processing>
+        <time-to-teleport value="300"/>
+        <max-depart-delay value="600"/>
+        <collision.action value="warn"/>
+        <collision.mingap-factor value="0"/>
+        <ignore-junction-blocker value="20"/>
+    </processing>
+
+    <report>
+        <no-step-log value="true"/>
+        <duration-log.statistics value="true"/>
+        <no-warnings value="true"/>
+        <tripinfo-output value="../results/tripinfo_actuated.xml"/>
+        <summary-output value="../results/summary_actuated.xml"/>
+        <statistic-output value="../results/statistics_actuated.xml"/>
+    </report>
+
+    <gui_only>
+        <gui-settings-file value="gui-settings.xml"/>
+        <start value="true"/>
+        <quit-on-end value="true"/>
+    </gui_only>
+
+</configuration>
